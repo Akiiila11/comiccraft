@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Comic Preview - ComicCraft</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef1f4;
+    padding: 24px;
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  .panel {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    max-width: 800px;
+    margin: 24px auto;
+  }
+  .panel h2 {
+    margin-top: 0;
+    color: #1a1a1a;
+  }
+  .panel img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 16px auto;
+  }
+  .scene-description {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 12px;
+  }
+  .panel-text {
+    white-space: pre-line;
+    color: #222;
+    line-height: 1.5;
+  }
+  .actions {
+    max-width: 800px;
+    margin: 32px auto;
+    text-align: center;
+  }
+  .actions a {
+    display: inline-block;
+    background: #1565c0;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .actions a:hover { background: #0d47a1; }
+</style>
+</head>
+<body>
+  <h1>📖 Your Comic Preview</h1>
+
+  {% for panel in layout %}
+  <div class="panel">
+    <h2>Panel {{ panel.panel }}: {{ panel.title }}</h2>
+    <img src="/{{ panel.image_path }}" alt="Illustration for panel {{ panel.panel }}">
+    {% if panel.scene_description %}
+    <p class="scene-description">{{ panel.scene_description }}</p>
+    {% endif %}
+    <p class="panel-text">{{ panel.text }}</p>
+  </div>
+  {% endfor %}
+
+  <div class="actions">
+    <a
+      href="{{ pdf_path }}"
+      download
+      id="download-link"
+      onclick="setTimeout(function () { window.location.href = '/export-success?pdf_path={{ pdf_path }}'; }, 600);"
+    >
+      🎨 Download Your Comic as PDF
+    </a>
+  </div>
+</body>
+</html>

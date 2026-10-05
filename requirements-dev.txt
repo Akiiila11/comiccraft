@@ -1,0 +1,4 @@
+# Extra dependencies only needed to run the test suite locally:
+#   pip install -r requirements-dev.txt
+pytest>=7.0
+httpx>=0.27

@@ -1,0 +1,28 @@
+# --- Web framework ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+jinja2>=3.1
+python-multipart>=0.0.9
+python-dotenv>=1.0
+
+# --- Google Gemini (unified Google Gen AI SDK) ---
+# google-generativeai (the old SDK named in early project drafts) reached
+# end-of-life in Nov 2025; google-genai is the current, actively maintained
+# package and is what app/gemini_flash.py and app/gemini_pro.py import.
+google-genai>=1.0
+
+# --- Stable Diffusion image generation ---
+diffusers>=0.30
+transformers>=4.44
+accelerate>=0.33
+torch>=2.2
+# On Windows/Linux without a GPU, the command below is enough (CPU-only,
+# slower). For a CUDA build matched to your GPU, install torch first using
+# the selector at https://pytorch.org/get-started/locally/ and then run
+# `pip install -r requirements.txt` again.
+
+# --- PDF export ---
+# fpdf2 is the maintained fork of the original "fpdf" package (which is
+# abandoned); it still imports as `from fpdf import FPDF`.
+fpdf2>=2.7
+Pillow>=10.0

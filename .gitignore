@@ -1,0 +1,26 @@
+# Environments
+env/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets
+.env
+
+# Generated content (keep the folders, ignore their contents)
+static/panels/*
+!static/panels/.gitkeep
+static/exports/*
+!static/exports/.gitkeep
+
+# Optional large font file (see static/fonts/README.md)
+static/fonts/*.ttf
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/settings.json
